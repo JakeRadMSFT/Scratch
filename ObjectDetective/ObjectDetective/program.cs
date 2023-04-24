@@ -22,14 +22,14 @@ ObjectDetectionTSV.Train(@"C:\dev\Scratch\ObjectDetective\ObjectDetective\Object
 
 var modelInputTSV = new ObjectDetectionTSV.ModelInput()
 {
-    ImagePath = @"C:\dev\datasets\object-detection\fruit103.png",
+    // ImagePath = @"C:\dev\datasets\object-detection\fruit103.png",
+    ImagePath = @"C:\dev\datasets\OD-cats\OD-cats\vott-json-export\IMG_5098.jpg",
 };
 
 
 var predictionTSV = ObjectDetectionTSV.Predict(modelInputTSV);
 
 Console.WriteLine(predictionTSV.ToString());
-
 
 mlContext = new MLContext();
 mlContext.Log += MlContext_Log;

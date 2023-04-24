@@ -23,6 +23,10 @@ namespace ObjectDetective
 
             [ColumnName("Box"), LoadColumn(2)]
             public float[] Box { get; set; }
+
+            public float Width { get; set; }
+
+            public float Height { get; set; }
         }
         #endregion
 

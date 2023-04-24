@@ -71,15 +71,35 @@ namespace ObjectDetective
 
                 var modelInput = new ModelInput()
                 {
-                    ImagePath = asset.Value["asset"]["path"].GetValue<string>().Replace("file:",""),
+                    ImagePath = asset.Value["asset"]["path"].GetValue<string>().Replace("file:", ""),
                     Labels = labelList.ToArray(),
                     Box = boxList.ToArray(),
+                    Width = asset.Value["asset"]["size"]["width"].GetValue<float>(),
+                    Height = asset.Value["asset"]["size"]["height"].GetValue<float>(),
                 };
 
                 imageData.Add(modelInput);
             }
 
-            
+
+            using (StreamWriter writetext = new StreamWriter(@"C:\dev\datasets\OD-cats\OD-cats\vott-json-export\cat400x300.tsv"))
+            {
+
+                foreach (var image in imageData)
+                {
+
+                    for (int i = 0; i < image.Box.Length; i+=2 ) {
+                        image.Box[i] = image.Box[i] * 400 / image.Width;
+                        image.Box[i + 1] = image.Box[i + 1] * 300 / image.Height;
+                    }
+
+                    writetext.WriteLine(Path.GetFileName(image.ImagePath) + '\t'
+                                  + string.Join(',', image.Labels) + '\t'
+                                  + string.Join(',', image.Box));
+
+                }
+            }
+
             return imageData;
         }
 
