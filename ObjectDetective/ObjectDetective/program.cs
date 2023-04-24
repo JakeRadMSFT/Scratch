@@ -22,8 +22,7 @@ ObjectDetectionTSV.Train(@"C:\dev\Scratch\ObjectDetective\ObjectDetective\Object
 
 var modelInputTSV = new ObjectDetectionTSV.ModelInput()
 {
-    // ImagePath = @"C:\dev\datasets\object-detection\fruit103.png",
-    ImagePath = @"C:\dev\datasets\OD-cats\OD-cats\vott-json-export\IMG_5098.jpg",
+    ImagePath = @"C:\dev\Scratch\ObjectDetective\dataset\IMG_5098.jpg",
 };
 
 
@@ -38,7 +37,7 @@ ObjectDetectionVOTT.Train(@"C:\dev\Scratch\ObjectDetective\ObjectDetective\Objec
 
 var modelInputVOTT = new ObjectDetectionVOTT.ModelInput()
 {
-    ImagePath = @"C:\dev\datasets\OD-cats\OD-cats\vott-json-export\IMG_5098.jpg",
+    ImagePath = @"C:\dev\Scratch\ObjectDetective\dataset\IMG_5098.jpg",
 };
 
 
