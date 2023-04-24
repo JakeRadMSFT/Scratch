@@ -173,7 +173,7 @@ namespace ObjectDetective
                 PredictedLabelColumnName = "PredictedLabel",
                 ScoreColumnName = "Score",
                 ScoreThreshold = 0.1,
-                MaxEpoch = 5,
+                MaxEpoch = 2,
             };
 
             var chain = new EstimatorChain<ITransformer>();
