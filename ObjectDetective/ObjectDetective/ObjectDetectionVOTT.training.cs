@@ -14,7 +14,8 @@ namespace ObjectDetective
     public partial class ObjectDetectionVOTT
     {
 
-        public const string RetrainFilePath = @"C:\dev\datasets\OD-cats\OD-cats\vott-json-export\cats-export.json";
+        public const string RetrainFilePath = @"C:\dev\Scratch\ObjectDetective\dataset\cats-export.json";
+        public const string RetrainImagePath = @"C:\dev\Scratch\ObjectDetective\dataset";
 
 
         /// <summary>
@@ -82,16 +83,19 @@ namespace ObjectDetective
             }
 
 
-            using (StreamWriter writetext = new StreamWriter(@"C:\dev\datasets\OD-cats\OD-cats\vott-json-export\cat400x300.tsv"))
+            using (StreamWriter writetext = new StreamWriter(@"C:\dev\Scratch\ObjectDetective\dataset\cat400x300.tsv"))
             {
 
                 foreach (var image in imageData)
                 {
 
+                    image.ImagePath = Path.Combine(RetrainImagePath, Path.GetFileName(image.ImagePath));
+
                     for (int i = 0; i < image.Box.Length; i+=2 ) {
                         image.Box[i] = image.Box[i] * 400 / image.Width;
                         image.Box[i + 1] = image.Box[i + 1] * 300 / image.Height;
                     }
+
 
                     writetext.WriteLine(Path.GetFileName(image.ImagePath) + '\t'
                                   + string.Join(',', image.Labels) + '\t'

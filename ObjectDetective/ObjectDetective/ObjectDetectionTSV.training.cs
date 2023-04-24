@@ -11,8 +11,8 @@ namespace ObjectDetective
     public partial class ObjectDetectionTSV
     {
 
-        public const string RetrainFilePath = @"C:\dev\datasets\OD-cats\OD-cats\vott-json-export\cat400x300.tsv";
-        public const string RetrainImagePath = @"C:\dev\datasets\OD-cats\OD-cats\vott-json-export";
+        public const string RetrainFilePath = @"C:\dev\Scratch\ObjectDetective\dataset\cat400x300.tsv";
+        public const string RetrainImagePath = @"C:\dev\Scratch\ObjectDetective\dataset";
         public const char RetrainSeparatorChar = '\t';
         public const bool RetrainHasHeader = false;
 
