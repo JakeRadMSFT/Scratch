@@ -37,7 +37,7 @@ namespace ObjectDetective
 
         public class ModelOutput
         {
-            [ColumnName("Box")]
+            [ColumnName("PredictedBoundingBoxes")]
             public float[] Boxes { get; set; } = new float[0];
 
             [ColumnName("PredictedLabel")]
